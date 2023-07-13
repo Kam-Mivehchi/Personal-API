@@ -13,10 +13,73 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
-model users {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  image     String
-  createdAt DateTime @default(now())
+model User {
+  id          String      @default(cuid()) @id
+  name        String
+  img         String
+  email       String
+  phone       String
+  linkedin    String   
+  github      String   
+  summary     String   
+  projects    Project[]   
+  experience  Experience[]   
+  education   Education[]   
+  skills      Skill[]       
+  
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  title       String
+  img         String
+  deployedURL String
+  githubURL   String
+  description String
+  skills      Skill[]   
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+}
+model Experience {
+  id          String    @id @default(cuid())
+  title       String
+  img         String
+  company     String
+  start       String?
+  end         String?
+  description String[]
+  skills      Skill[]   
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+}
+model Education {
+  id       String    @id @default(cuid())
+  institution String
+  img       String
+  program   String
+  start     String?
+  end       String?
+  courses   Course[]
+  skills    Skill[]   
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+}
+model Skill {
+  id           String    @id @default(cuid())
+  name         String    @unique
+  img          String
+  projects     Project[] 
+  education    Education[] 
+  experience   Experience[] 
+  courses      Course[] 
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+}
+model Course {
+  id       String    @id @default(cuid())
+  title    String
+  skills   Skill[]   
+  grade    String?
+  educationId String
+  education  Education @relation(fields: [educationId], references: [id])
 }
