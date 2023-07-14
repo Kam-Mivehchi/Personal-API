@@ -87,11 +87,31 @@ const skillData =
     { name: 'Spotify Web API', img: 'https://imgur.com/HIawAcU', userId: 'clk1qaatt0000qubo9wwcwqv4' }
   ]
 
+const chemSkillData =
+  [
+    { name: 'Mass spectrometry', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'GC-MS', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'FTIR Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'RAMAN Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'IR Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'ICP-AES', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'NMR', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Bench Testing', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Quality Control', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Product Development', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Problem Solving', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Formulation', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Leadership', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Product Development', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Unkown Sample Analysis', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+
+  ]
+
 
 async function createSkills() {
 
   const skills = await prisma.skill.createMany({
-    data: skillData,
+    data: chemSkillData,
     skipDuplicates: true, // Skip 'Bobo'
   })
   console.log(skills)
@@ -104,7 +124,7 @@ async function createProjects() {
   })
   console.log(skills)
 }
-createProjects()
+createSkills()
   .then(async () => {
     await prisma.$disconnect()
   })
