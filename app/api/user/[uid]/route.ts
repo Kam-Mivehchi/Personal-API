@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
-
+interface IUserRequest extends Request {
+   query: string
+}
 export async function GET(
-   request: Request,
+   request: IUserRequest,
    { params }: { params: { uid: string } }
 ) {
    try {
-
+      const { searchParams } = new URL(request.url)
+      console.log(searchParams)
       const { uid } = params
       const user = await prisma.user.findUnique({
          where: {

@@ -22,7 +22,9 @@ export interface IProject {
    deployedURL: string;
    githubURL: string;
    description: string;
-   skills: [ISkill]
+   skills: [ISkill];
+   userId: string;
+   user: IUser;
 }
 
 export interface IExperience {
@@ -33,7 +35,9 @@ export interface IExperience {
    start?: string;
    end?: string;
    description: [string];
-   skills: [ISkill]
+   skills: [ISkill];
+   userId: string;
+   user: IUser;
 }
 export interface IEducation {
    id: string;
@@ -43,7 +47,9 @@ export interface IEducation {
    start?: string;
    end?: string;
    courses: [ICourse];
-   skills: [ISkill]
+   skills: [ISkill];
+   userId: string;
+   user: IUser;
 }
 
 export interface ICourse {
@@ -51,6 +57,8 @@ export interface ICourse {
    title: string;
    skills: [ISkill];
    grade?: string;
+   educationId: string;
+   education: IEducation;
 }
 
 export interface ISkill {
@@ -61,4 +69,12 @@ export interface ISkill {
    education?: [IEducation];
    experience?: [IExperience];
    courses?: [ICourse];
+   tags: [ITag];
+   users: [IUser]
+}
+
+export interface ITag {
+   id: string;
+   name: string;
+   skills: [ISkill]
 }

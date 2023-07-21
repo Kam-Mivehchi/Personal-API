@@ -26,6 +26,7 @@ model User {
   experience  Experience[]   
   education   Education[]   
   skills      Skill[]       
+  tags        Tag[]       
   
 }
 
@@ -72,8 +73,8 @@ model Skill {
   education    Education[] 
   experience   Experience[] 
   courses      Course[] 
-  userId       String
-  user         User      @relation(fields: [userId], references: [id])
+  users        User[]
+  tags         Tag[]
 }
 model Course {
   id       String    @id @default(cuid())
@@ -82,4 +83,10 @@ model Course {
   grade    String?
   educationId String
   education  Education @relation(fields: [educationId], references: [id])
+}
+model Tag {
+  id       String    @id @default(cuid())
+  name     String
+  skills   Skill[]    
+  users    User[] 
 }

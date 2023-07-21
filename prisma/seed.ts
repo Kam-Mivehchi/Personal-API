@@ -1,5 +1,5 @@
 import prisma from '../lib/prisma'
-
+import { ISkill } from '../interfaces'
 const projectData = [
   {
     //use this desc size as template no longer
@@ -64,51 +64,59 @@ const projectData = [
 
 const skillData =
   [
-    { name: 'Next.js', img: 'https://imgur.com/A8pEUb9', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Styled-Components', img: 'https://imgur.com/1l2o00m', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'SASS', img: 'https://imgur.com/0yTuG0u', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'EmailJS', img: 'https://imgur.com/vG95RQp', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'JavaScript', img: 'https://imgur.com/3R8g07P', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'React', img: 'https://imgur.com/6xI2zkg', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'CSS', img: 'https://imgur.com/dIiW6K9', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Express', img: 'https://imgur.com/ZDFcMHD', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'MongoDB', img: 'https://imgur.com/PZcHhuS', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Mongoose', img: 'https://imgur.com/1GR6ejs', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Axios', img: 'https://imgur.com/7wlmkQD', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: '3rd Party API', img: 'https://imgur.com/SNdWZpx', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'TailwindCSS', img: 'https://imgur.com/96dBe2C', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'MySQL', img: 'https://imgur.com/5Pw3jfN', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'HTML', img: 'https://imgur.com/RqGYqT0', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: "Local Storage", img: 'https://imgur.com/gZBZOrj', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: "Bootstrap 5", img: 'https://imgur.com/yGxu8hn', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: "DayJS", img: 'https://imgur.com/Ewqg446', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: "Open Weather API", img: 'https://imgur.com/d5QYEFg', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Bootstrap 4', img: 'https://imgur.com/yGxu8hn', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Spotify Web API', img: 'https://imgur.com/HIawAcU', userId: 'clk1qaatt0000qubo9wwcwqv4' }
+    { name: 'Next.js', img: 'https://imgur.com/A8pEUb9' },
+    { name: 'Styled-Components', img: 'https://imgur.com/1l2o00m' },
+    { name: 'SASS', img: 'https://imgur.com/0yTuG0u' },
+    { name: 'EmailJS', img: 'https://imgur.com/vG95RQp' },
+    { name: 'JavaScript', img: 'https://imgur.com/3R8g07P' },
+    { name: 'React', img: 'https://imgur.com/6xI2zkg' },
+    { name: 'CSS', img: 'https://imgur.com/dIiW6K9' },
+    { name: 'Express', img: 'https://imgur.com/ZDFcMHD' },
+    { name: 'MongoDB', img: 'https://imgur.com/PZcHhuS' },
+    { name: 'Mongoose', img: 'https://imgur.com/1GR6ejs' },
+    { name: 'Axios', img: 'https://imgur.com/7wlmkQD' },
+    { name: '3rd Party API', img: 'https://imgur.com/SNdWZpx' },
+    { name: 'TailwindCSS', img: 'https://imgur.com/96dBe2C' },
+    { name: 'MySQL', img: 'https://imgur.com/5Pw3jfN' },
+    { name: 'HTML', img: 'https://imgur.com/RqGYqT0' },
+    { name: "Local Storage", img: 'https://imgur.com/gZBZOrj' },
+    { name: "Bootstrap 5", img: 'https://imgur.com/yGxu8hn' },
+    { name: "DayJS", img: 'https://imgur.com/Ewqg446' },
+    { name: "Open Weather API", img: 'https://imgur.com/d5QYEFg' },
+    { name: 'Bootstrap 4', img: 'https://imgur.com/yGxu8hn' },
+    { name: 'Spotify Web API', img: 'https://imgur.com/HIawAcU' }
   ]
 
 const chemSkillData =
   [
-    { name: 'Mass spectrometry', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'GC-MS', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'FTIR Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'RAMAN Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'IR Spectroscopy', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'ICP-AES', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'NMR', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Bench Testing', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Quality Control', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Product Development', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Problem Solving', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Formulation', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Leadership', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Product Development', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
-    { name: 'Unkown Sample Analysis', img: '', userId: 'clk1qaatt0000qubo9wwcwqv4' },
+    { name: 'Mass spectrometry', img: '' },
+    { name: 'GC-MS', img: '' },
+    { name: 'FTIR Spectroscopy', img: '' },
+    { name: 'RAMAN Spectroscopy', img: '' },
+    { name: 'IR Spectroscopy', img: '' },
+    { name: 'ICP-AES', img: '' },
+    { name: 'NMR', img: '' },
+    { name: 'Bench Testing', img: '' },
+    { name: 'Quality Control', img: '' },
+    { name: 'Product Development', img: '' },
+    { name: 'Problem Solving', img: '' },
+    { name: 'Formulation', img: '' },
+    { name: 'Leadership', img: '' },
+    { name: 'Product Development', img: '' },
+    { name: 'Unkown Sample Analysis', img: '' },
 
   ]
 
 
 async function createSkills() {
+
+  const skills = await prisma.skill.createMany({
+    data: chemSkillData,
+    skipDuplicates: true, // Skip 'Bobo'
+  })
+  console.log(skills)
+}
+async function createTags() {
 
   const skills = await prisma.skill.createMany({
     data: chemSkillData,
